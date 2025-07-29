@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ser Solidário - Pizza Solidária</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+
+    <div class="container">
+        <div>
+            <h1>🍕 Pizza Solidária - Ser Solidário 💙</h1>
+            <p>Faça seu pedido e ajude quem precisa!</p>
+        </div>
+                
+        <form action="/pedido" method="POST">
+            
+            <h3>Seus Dados</h3>
+
+            <div>
+                <div>
+                    <label for="nome">Nome Completo *</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div>
+                    <label for="whatsapp">WhatsApp *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(99) 99999-9999" required>
+                </div>
+            </div>
+
+            <h2>Escolha seus sabores:</h2>
+            <div id="sabores-container">
+                <!-- Cards serão gerados pelo JavaScript -->
+            </div>
+
+            <div>
+                <h3>Como deseja retirar sua pizza?</h3>
+                <label>
+                    <input type="radio" name="retirada" value="arena">Na Arena Bonfim
+                </label>              
+                <label>
+                    <input type="radio" name="retirada" value="voluntario">Com Voluntário do Ser Solidário
+                </label>
+                <label>
+                    <input type="radio" name="retirada" value="doacao">Doação para Famílias Carentes
+                </label>
+
+                <!-- Se o usuário selecionar "NA ARENA BONFIM" -->
+                <div>
+                    <p><h3>Selecione um dia para retirar sua pizza:</h3></p>
+                        <label>
+                            <input type="radio" name="dia_retirada" value="quinta"> Quinta-Feira, 11/09 das 17h às 21h
+                        </label>                    
+                        <label>
+                            <input type="radio" name="dia_retirada" value="sexta"> Sexta-Feira, 12/09 das 16h às 20h
+                        </label>                    
+                        <label>
+                            <input type="radio" name="dia_retirada" value="sabado"> Sábado, 13/09 das 9h às 14h
+                        </label>
+                </div>
+
+                <!-- Se o usuário selecionar "COM VOLUNTÁRIO DO SER SOLIDÁRIO"-->
+                <div>
+                    <label><h3>Digite o Nome do Voluntário:</h3></label>
+                    <input type="text" name="nome_voluntario" placeholder="Nome do voluntário">
+                </div>
+            </div>
+
+            <div>
+                <h2>Confirmação do Pedido</h2>
+                <p>{Sabor da Pizza} x{Quantidade de Pizzas}</p>
+                <h3>Valor Total: R$ 0,00</h3>
+            </div>
+
+            <div>
+                <p><h3>Realize o Pagamento Via Pix Até o dia 31/08</h3></p>
+                <p><h3>Chave PIX:</h3> 19971530819</p>
+                <p><h3>Cedente:</h3> Fabiana Higuti</p>
+            </div>
+            
+
+            <button type="submit">FAZER PEDIDO</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
