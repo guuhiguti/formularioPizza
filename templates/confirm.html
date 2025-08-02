@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ser Solidário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/confirm.css') }}">
+</head>
+<body>
+    <h1>Pedido Confirmado!</h1>
+
+    <h2>Nome: {{ nome }}</h2>
+    <p>WhatsApp: {{ whatsapp }}</p>
+
+    <h3>Pizzas:</h3>
+    <ul>
+        {% for sabor, quantidade in dados.items() %}
+            {% if quantidade > 0 %}
+                <li>{{ sabor }} - {{ quantidade }}x</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h3>Forma de Retirada:</h3>
+    <p>{{ retirada }}</p>
+
+    {% if retirada == "arena" %}
+        <p>Dia de Retirada: {{ dia_retirada }}</p>
+    {% elif retirada == "voluntario" %}
+        <p>Nome do Voluntário: {{ nome_voluntario }}</p>
+    {% endif %}
+
+    <h3>Pix para pagamento:</h3>
+    <p>Chave Pix: 19981530819</p>
+    <p>Banco: Inter</p>
+    <p>Cedente: Fabiana Higuti</p>
+</body>
+</html>
