@@ -25,14 +25,14 @@
             <h3>Escolha suas pizzas</h3>
             <div class="pizza-container">
                 {% for pizza in sabores %}
-                <div class="pizza-card">
-                    <img src="{{ url_for('static', filename='img/' ~ pizza.imagem) }}" alt="{{ pizza.nome }}" width="100">
-                    <p> {{ pizza.nome }} </p>
-                    <button type="button" onclick="alterarQuantidade('{{ pizza.nome}}', 1)">+</button>
-                    <span id="quantidade-{{ pizza.nome|replace('', '-') }}">0</span>
-                    <button type="button" onclick="alterarQuantidade('{{ pizza.nome}}', -1)">-</button>
-                    <input type="hidden" name="sabor_{{ pizza.nome|replace('','_')}}" id="input-{{ pizza.nome|('','-') }}" value="0">
-                </div>
+                    <div class="pizza-card">
+                        <img src="{{ url_for('static', filename='img/' ~ pizza.imagem) }}" alt="{{ pizza.nome }}" width="100">
+                        <p>{{ pizza.nome }}</p>
+                        <button type="button" onclick="alterarQuantidade('{{ pizza.nome }}', -1)">-</button>
+                        <span id="quantidade-{{ pizza.nome|replace(' ', '-') }}">0</span>
+                        <button type="button" onclick="alterarQuantidade('{{ pizza.nome }}', 1)">+</button>
+                        <input type="hidden" name="sabor_{{ pizza.nome|replace(' ', '_') }}" id="input-{{ pizza.nome|replace(' ', '-') }}" value="0">
+                    </div>
                 {% endfor %}
             </div>
             <br>

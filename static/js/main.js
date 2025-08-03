@@ -15,9 +15,6 @@ function alterarQuantidade(sabor, delta) {
     input.value = atual;
 }
 
-
-
-
 // Perguntas Dinâmicas de Acordo com a Opção Selecionada
 const radios = document.getElementsByName('retirada');
 const blocoArena = document.getElementById('arena');
