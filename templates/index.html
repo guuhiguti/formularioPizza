@@ -8,86 +8,114 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Pizza Solidária - Ser Solidário</h1>
-            <p>Faça seu pedido e ajude quem precisa</p>
-        </div> <br>
-        <form action="/enviar-pedido" method="POST">
-            <div class="main">
-                <h3>Seus Dados</h3>
-                <label for="name">Nome *</label>
-                <input type="text" name="name" id="name" required>
-
-                <label for="whatsapp">WhatsApp *</label>
-                <input type="tel" name="whatsapp" id="whatsapp" placeholder="(99) 99999-9999" required> 
-            </div>
-            <br>
-            <h3>Escolha suas pizzas</h3>
-            <div class="pizza-container">
-                {% for pizza in sabores %}
-                    <div class="pizza-card">
-                        <img src="{{ url_for('static', filename='img/' ~ pizza.imagem) }}" alt="{{ pizza.nome }}" width="100">
-                        <p>{{ pizza.nome }}</p>
-                        <button type="button" onclick="alterarQuantidade('{{ pizza.nome }}', -1)">-</button>
-                        <span id="quantidade-{{ pizza.nome|replace(' ', '-') }}">0</span>
-                        <button type="button" onclick="alterarQuantidade('{{ pizza.nome }}', 1)">+</button>
-                        <input type="hidden" name="sabor_{{ pizza.nome|replace(' ', '_') }}" id="input-{{ pizza.nome|replace(' ', '-') }}" value="0">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="header-content">
+                <h1>PIZZA SOLIDÁRIA <img src="{{ url_for('static', filename='images/logo-projeto2.png') }}" alt="logo-projeto" width="170px" height="160px"></h1>
+                <p>Faça seu pedido e ajude quem precisa!</p>
+            </div>            
+        </div>
+        
+        <form action="/enviar-pedido" method="POST" id="pizza-form">
+            <div class="dados-usuario">
+                <h3>SEUS DADOS</h3>
+                <div class="dados-grid">
+                    <div class="input-group">
+                        <label for="name">NOME *</label>
+                        <input type="text" name="name" id="name" placeholder="Nome Completo" required>
                     </div>
-                {% endfor %}
+                    <div class="input-group">
+                        <label for="whatsapp">WHATSAPP *</label>
+                        <input type="tel" name="whatsapp" id="whatsapp" placeholder="(99) 99999-9999" required>
+                    </div>
+                </div>
             </div>
+
+            <h3>ESCOLHA SUAS PIZZAS</h3>
+            <div class="pizza-container">
+                <div class="pizza-grid">
+                    {% for pizza in pizzas %}
+                    <div class="pizza-card">
+                        <div class="pizza-image">
+                            <img src="{{ url_for('static', filename='images/' + pizza.imagem) }}" 
+                                 alt="{{ pizza.nome }}" 
+                                 class="pizza-img">
+                        </div>
+                        <h4>{{ pizza.nome }}</h4>
+                        <div class="quantidade-controls">
+                            <button type="button" class="btn-quantidade" onclick="alterarQuantidade('{{ pizza.id }}', -1)">-</button>
+                            <span id="quantidade-{{ pizza.id }}" class="quantidade-display">0</span>
+                            <button type="button" class="btn-quantidade" onclick="alterarQuantidade('{{ pizza.id }}', 1)">+</button>
+                        </div>
+                        <input type="hidden" name="pizza-{{ pizza.id }}" id="input-{{ pizza.id }}" value="0">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div id="pizza-selection-error" class="error-message" style="display: none; color: red; margin-top: 10px;">
+                Por favor, selecione pelo menos um sabor de pizza.
+            </div>
+            
+            <h3>RETIRADA</h3>
+            <div class="retirada-options">
+                <label class="radio-label">
+                    <input type="radio" name="retirada" value="arena" required> Arena Bonfim
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="retirada" value="voluntario"> Com Voluntário do Ser Solidário
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="retirada" value="doacao"> Doação para Famílias Carentes
+                </label>
+            </div>
+            
+            <!-- Opções condicionais de retirada  -->
+            <div id="arena" class="oculto extra-option-box">
+                <p>Selecione um dia para retirar a sua pizza:</p>
+                <label class="radio-label">
+                    <input type="radio" name="dia_retirada" value="quinta"> Quinta-feira, 11/09 das 17h às 21h
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="dia_retirada" value="sexta"> Sexta-feira, 12/09 das 16h às 20h
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="dia_retirada" value="sabado"> Sábado, 13/09 das 9h às 14h
+                </label>
+            </div>
+            
+            <div id="voluntario" class="oculto extra-option-box">
+                <div class="input-group">
+                    <label for="nome_voluntario">Digite o Nome do Voluntário</label>
+                    <input type="text" name="nome_voluntario" id="nome_voluntario" placeholder="Nome do Voluntário">
+                </div>
+            </div>
+            
             <br>
-            <h3>Retirada</h3>
-
-            <div>
-                <label><input type="radio" name="retirada" value="arena" required> Arena Bonfim </label>
-            </div>
-            <div>
-                <label><input type="radio" name="retirada" value="voluntario"> Com Voluntário do Ser Solidário </label>
-            </div>
-            <div>
-                <label><input type="radio" name="retirada" value="doacao"> Doação para Famílias Carentes </label>
-            </div>
-
-            <div id="arena" class="oculto">
-                <label>Selecione um dia para retirar a sua pizza:</label>
-                <div>
-                    <label><input type="radio" name="dia_retirada" value="quinta"> Quinta-feira, 11/09 das 17h às 21h </label>
-                </div>
-                <div>
-                    <label><input type="radio" name="dia_retirada" value="sexta"> Sexta-feira, 12/09 das 16h às 20h </label>
-                </div>
-                <div>
-                    <label><input type="radio" name="dia_retirada" value="sabado"> Sábado, 13/09 das 9h às 14h </label>
-                </div>
-            </div>
-
-            <div id="voluntario" class="oculto">
-                <label>Digite o Nome do Voluntário</label>
-                <input type="text" name="nome_voluntario" placeholder="Nome do Voluntário">
-            </div>
-            <br>
-            <div>
+            <!-- Resumo do Pedido -->
+            <div class="resumo-pedido">
                 <h3>Resumo do Pedido</h3>
-                <div>
-                    <p>{sabor da pizza} + {quantidade}</p>
-                    <p>TOTAL: R$ {Valor Total}</p>                        
+                <div id="resumo-pizzas">
+                    <!-- Conteúdo dinâmico: Sabor da Pizza + quantidade -->
                 </div>
-                <div>
-                    <p>RETIRADA</p>
-                    <p>{retirada selecionado}</p>                        
-                </div>
+                <p class="total-valor">Total: R$ <span id="valor-total">0,00</span></p>
+                <p class="retirada-info">RETIRADA: <span id="retirada-selecionada">Selecione uma opção</span></p>
+                <p id="detalhes-retirada" class="detalhes-retirada"></p>
             </div>
+            
             <br>
-            <div>
-                <h2>Realize o Pagamento Via Pix Até o Dia 31/08</h2>
+            <!-- Informações de Pagamento -->
+            <div class="pagamento-info">
+                <h2>REALIZE O PAGAMENTO VIA PIX ATÉ O DIA 31/08</h2>
                 <p>CHAVE PIX: 19981530819</p>
                 <p>BANCO: Inter</p>
                 <p>CEDENTE: Fabiana Higuti</p>
             </div>
-
-            <button type="submit">Enviar Pedido</button>
+            
+            <button type="submit" class="btn-enviar">ENVIAR PEDIDO</button>
         </form>
-    </div>    
+    </div>
+    
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

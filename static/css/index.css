@@ -1,4 +1,382 @@
+/* Reset e estilos gerais */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px; /* Ajustado para ser um pouco mais estreito */
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Existing styles */
+.header-section {
+  border: 2px solid #2563eb; /* Borda azul */
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+}
+.header-content {
+  text-align: center;
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+}
+.header-content h1 {
+  color: #2563eb;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  /* New styles for flexbox to place image next to text */
+  display: flex; /* Make h1 a flex container */
+  align-items: center; /* Vertically align items (text and image) */
+  justify-content: center; /* Horizontally center the flex items */
+  gap: 10px; /* Add space between the text and the image */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens if needed */
+}
+
+.header-content p {
+  color: #6b7280;
+  font-size: 16px;
+  font-style: italic;
+
+}.dados-usuario h3 {
+    color: #2563eb;
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: left; /* Centralizado como na imagem */
+}
+
+.dados-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    color: #2563eb;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="tel"] {
+    padding: 10px 15px;
+    border: 2px solid #2563eb; /* Borda azul */
+    border-radius: 8px; /* Arredondado */
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="tel"]:focus,
+.input-group input[type="text"]:hover,
+.input-group input[type="tel"]:hover {
+    outline: none;
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Títulos de Seção */
+h3 {
+    color: #2563eb;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center; /* Centralizado */
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* Cards de Pizza */
+.pizza-container {
+    margin: 20px 0;
+}
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.pizza-card {
+    border: 2px solid #3b82f6;
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px; /* Espaço para os controles */
+}
+
+.pizza-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.pizza-image {
+    width: 100%;
+    height: 150px; /* Altura fixa para as imagens */
+    overflow: hidden;
+    border-radius: 13px 13px 0 0;
+}
+
+.pizza-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.pizza-card:hover .pizza-img {
+    transform: scale(1.08);
+}
+
+.pizza-card h4 {
+    color: #1e40af;
+    margin: 15px 0 10px;
+    font-size: 17px;
+    text-align: center;
+    padding: 0 10px;
+    flex-grow: 1; /* Para que o título ocupe o espaço e alinhe os botões */
+}
+
+.quantidade-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-quantidade {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #3b82f6;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3b82f6;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-quantidade:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.quantidade-display {
+    font-weight: bold;
+    font-size: 20px;
+    min-width: 25px;
+    color: #1e40af;
+    text-align: center;
+}
+
+/* Opções de Retirada */
+.retirada-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb; /* Cor do radio button */
+}
+
+.oculto {
+    display: none;
+}
+
+.extra-option-box {
+    border: 1px solid #a8c7fa; /* Borda mais suave */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #eef6ff; /* Fundo suave */
+}
+
+.extra-option-box p {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1e40af;
+}
+
+.extra-option-box .radio-label {
+    margin-bottom: 10px;
+}
+
+/* Resumo do Pedido (Simplificado conforme Imagem 3) */
+.resumo-pedido {
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    background-color: #f9f9f9;
+}
+
+.resumo-pedido h3 {
+    color: #1e40af;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+#resumo-pizzas p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #4a4a4a;
+}
+
+.total-valor {
+    font-size: 24px;
+    font-weight: bold;
+    color: #059669;
+    text-align: left;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.retirada-info {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    color: #4a4a4a;
+}
+
+.retirada-info span {
+    font-weight: normal;
+    color: #2563eb;
+}
+
+.detalhes-retirada {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Informações de Pagamento */
+.pagamento-info {
+    background: #fffbe6; /* Fundo amarelo claro */
+    border: 2px solid #fcd34d; /* Borda amarela */
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pagamento-info h2 {
+    color: #b45309; /* Tom de marrom/laranja */
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.pagamento-info p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #b45309;
+}
+
+/* Botão de Enviar */
+.btn-enviar {
+    width: 100%;
+    padding: 15px;
+    background: #059669; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.2);
+}
+
+.btn-enviar:hover {
+    background: #047857; /* Verde mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(5, 150, 105, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .dados-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        gap: 15px;
+    }
+    
+    .pizza-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Cards menores */
+        gap: 15px;
+    }
+    
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+    
+    .header-content h1 {
+        font-size: 24px;
+    }
+    
+    .header-content p {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .pizza-image {
+        height: 120px;
+    }
 }
