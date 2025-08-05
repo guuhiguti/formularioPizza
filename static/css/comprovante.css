@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f7fa;
+    background-color: #ddeffd;
     color: #333;
     line-height: 1.6;
     display: flex; /* Para centralizar o card */
@@ -16,7 +16,7 @@ body {
 }
 .confirmation-card {
     background: white;
-    border: 3px solid #2563eb;
+    border: 3px solid #1983c6;
     border-radius: 20px;
     padding: 40px;
     margin: 20px auto; /* Ajustado para centralizar melhor */
@@ -25,7 +25,7 @@ body {
     box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
 }
 .confirmation-card h1 {
-    color: #2563eb;
+    color: #1983c6;
     font-size: 32px;
     margin-bottom: 25px;
     font-weight: bold;
@@ -37,14 +37,14 @@ body {
     line-height: 1.8;
 }
 .confirmation-card .highlight {
-    color: #059669;
+    color: black;
     font-weight: bold;
 }
 .whatsapp-link {
     display: inline-flex; /* Usar flex para alinhar ícone e texto */
     align-items: center;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 5px;
     padding: 15px 30px;
     background-color: #25D366; /* Cor do WhatsApp */
     color: white;
@@ -62,19 +62,6 @@ body {
 .whatsapp-link svg {
     vertical-align: middle;
     margin-right: 10px;
-}
-.info-link {
-    margin-top: 30px;
-    font-size: 16px;
-    color: #6b7280;
-}
-.info-link a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: bold;
-}
-.info-link a:hover {
-    text-decoration: underline;
 }
 
 /* Responsividade para a página de confirmação */

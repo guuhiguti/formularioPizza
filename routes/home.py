@@ -71,5 +71,11 @@ def submit():
 
 @home_route.route('/view')
 def view():
-    pedidos = Pedidos.select().order_by(Pedidos.data.desc())
+    pedidos = Pedidos.select().order_by(Pedidos.id.asc())
     return render_template('lista_pedidos.html', pedidos=pedidos)
+
+# @home_route.route('/reset', methods=['GET'])
+# def reset_pedidos():
+#     Pedidos.delete().execute()
+#     db.execute_sql("ALTER SEQUENCE pedidos_id_seq RESTART WITH 1;")
+#     return "Todos os pedidos foram apagados."
