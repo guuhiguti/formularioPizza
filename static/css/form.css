@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f7fa;
+    background-color: #ddeffd;
     color: #333;
     line-height: 1.6;
 }
@@ -23,11 +23,11 @@ body {
 
 /* Existing styles */
 .header-section {
-  border: 2px solid #2563eb; /* Borda azul */
+  border: 2px solid #1983c6; /* Borda azul */
   border-radius: 15px;
   padding: 25px;
   margin-bottom: 30px;
-  background-color: #ffffff;
+  background-color: #ddeffd;
 }
 .header-content {
   text-align: center;
@@ -35,26 +35,24 @@ body {
   padding-bottom: 15px;
 }
 .header-content h1 {
-  color: #2563eb;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-  /* New styles for flexbox to place image next to text */
-  display: flex; /* Make h1 a flex container */
-  align-items: center; /* Vertically align items (text and image) */
-  justify-content: center; /* Horizontally center the flex items */
-  gap: 10px; /* Add space between the text and the image */
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens if needed */
+    color: #1983c6;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
 }
-
+ 
 .header-content p {
-  color: #6b7280;
-  font-size: 16px;
-  font-style: italic;
+    margin-top: 25px;
+    color: #1983c6;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 3px;
+
 
 }.dados-usuario h3 {
-    color: #2563eb;
+    color: #1983c6;
     font-size: 22px;
     margin-bottom: 15px;
     font-weight: bold;
@@ -73,7 +71,7 @@ body {
 }
 
 .input-group label {
-    color: #2563eb;
+    color: #1983c6;
     font-weight: bold;
     margin-bottom: 8px;
     font-size: 14px;
@@ -82,7 +80,7 @@ body {
 .input-group input[type="text"],
 .input-group input[type="tel"] {
     padding: 10px 15px;
-    border: 2px solid #2563eb; /* Borda azul */
+    border: 2px solid #1983c6; /* Borda azul */
     border-radius: 8px; /* Arredondado */
     font-size: 16px;
     transition: all 0.3s ease;
@@ -100,12 +98,11 @@ body {
 
 /* Títulos de Seção */
 h3 {
-    color: #2563eb;
+    color: #1983c6;
     font-size: 22px;
-    font-weight: bold;
     margin-top: 30px;
     margin-bottom: 20px;
-    text-align: center; /* Centralizado */
+    text-align: left; /* Centralizado */
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 10px;
 }
@@ -122,10 +119,10 @@ h3 {
 }
 
 .pizza-card {
-    border: 2px solid #3b82f6;
+    border: 2px solid #1983c6;
     border-radius: 15px;
     overflow: hidden;
-    background: white;
+    background: #ddeffd;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
@@ -158,7 +155,7 @@ h3 {
 }
 
 .pizza-card h4 {
-    color: #1e40af;
+    color: #1983c6;
     margin: 15px 0 10px;
     font-size: 17px;
     text-align: center;
@@ -177,13 +174,13 @@ h3 {
 .btn-quantidade {
     width: 32px;
     height: 32px;
-    border: 2px solid #3b82f6;
+    border: 2px solid #1983c6;
     background: white;
     border-radius: 50%;
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
-    color: #3b82f6;
+    color: #1983c6;
     transition: all 0.2s;
     display: flex;
     align-items: center;
@@ -191,7 +188,7 @@ h3 {
 }
 
 .btn-quantidade:hover {
-    background: #3b82f6;
+    background: #1983c6;
     color: white;
 }
 
@@ -241,7 +238,7 @@ h3 {
 .extra-option-box p {
     font-weight: bold;
     margin-bottom: 15px;
-    color: #1e40af;
+    color: #1983c6;
 }
 
 .extra-option-box .radio-label {
@@ -254,11 +251,11 @@ h3 {
     border-radius: 15px;
     padding: 25px;
     margin-top: 30px;
-    background-color: #f9f9f9;
+    background-color: #ddeffd;
 }
 
 .resumo-pedido h3 {
-    color: #1e40af;
+    color: #1983c6;
     font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
@@ -275,7 +272,7 @@ h3 {
 .total-valor {
     font-size: 24px;
     font-weight: bold;
-    color: #059669;
+    color: #be1522;
     text-align: left;
     margin-top: 20px;
     padding-top: 15px;
@@ -293,7 +290,7 @@ h3 {
 
 .retirada-info span {
     font-weight: normal;
-    color: #2563eb;
+    color: #1983c6;
 }
 
 .detalhes-retirada {
@@ -305,8 +302,8 @@ h3 {
 
 /* Informações de Pagamento */
 .pagamento-info {
-    background: #fffbe6; /* Fundo amarelo claro */
-    border: 2px solid #fcd34d; /* Borda amarela */
+    background: #be1522; /* Fundo amarelo claro */
+    border: 2px solid #be1522; /* Borda amarela */
     border-radius: 15px;
     padding: 25px;
     margin-top: 30px;
@@ -314,22 +311,28 @@ h3 {
 }
 
 .pagamento-info h2 {
-    color: #b45309; /* Tom de marrom/laranja */
+    color: white; /* Tom de marrom/laranja */
     margin-bottom: 15px;
     font-size: 20px;
+}
+
+.pagamento-info h5 {
+    color: white; /* Tom de marrom/laranja */
+    margin-bottom: 15px;
+    font-size: 30px;
 }
 
 .pagamento-info p {
     margin: 8px 0;
     font-size: 16px;
-    color: #b45309;
+    color: white;
 }
 
 /* Botão de Enviar */
 .btn-enviar {
     width: 100%;
     padding: 15px;
-    background: #059669; /* Verde */
+    background: #be1522;
     color: white;
     border: none;
     border-radius: 10px;
@@ -342,9 +345,9 @@ h3 {
 }
 
 .btn-enviar:hover {
-    background: #047857; /* Verde mais escuro */
+    background: #ef4e5a; /* Verde mais escuro */
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(5, 150, 105, 0.3);
+    box-shadow: 0 6px 15px rgba(210, 26, 26, 0.3);
 }
 
 /* Responsividade */
@@ -365,7 +368,7 @@ h3 {
     }
     
     .header-content h1 {
-        font-size: 24px;
+        font-size: 36px;
     }
     
     .header-content p {
