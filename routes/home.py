@@ -22,12 +22,12 @@ def calcular_preco_total(total_pizzas):
     restante_impar = total_pizzas % 2
     return (num_pares * 90) + (restante_impar * 50)
 
-@home_route.route('/pizzas')
+@home_route.route('/')
 def pedidos():
     """ Renderizar Formulario das Pizzas"""
     return render_template('form.html', pizzas=PIZZAS)
 
-@home_route.route('/pizzas', methods=['POST'])
+@home_route.route('/', methods=['POST'])
 def submit():
     """ Enviar os Pedidos para o Banco de Dados + redirecionar para Página do Comprovante """
 
