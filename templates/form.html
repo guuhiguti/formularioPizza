@@ -12,8 +12,17 @@
         <!-- Header -->   
         <div class="header-section">
             <div class="header-content">
-                <h1>PIZZA SOLIDÁRIA</h1> <img src="{{ url_for('static', filename='images/logo-projeto2.png') }}" alt="logo-projeto" width="270px" height="120px">
-                <p>PARTICIPE DESSA CAMPANHA DELICIOSA E FAÇA UMA CRIANÇA SORRIR!</p>
+                <h1>PIZZA SOLIDÁRIA</h1> 
+                <img src="{{ url_for('static', filename='images/logo-projeto2.png') }}" alt="logo-projeto" width="270px" height="120px">
+                <div>
+                    <p>PARTICIPE DESSA CAMPANHA DELICIOSA E FAÇA UMA CRIANÇA SORRIR!</p>
+                    <p>VALORES: 1 pizza R$50,00 | 2 pizzas R$90,00 </p>
+                    <p>
+                        <a href="https://www.instagram.com/sersolidariocampinas" target="_blank" style="text-decoration: none; color: inherit;">
+                            @sersolidariocampinas
+                        </a>
+                    </p>
+                </div>
             </div>            
         </div>
         
@@ -73,7 +82,7 @@
             
             <!-- Opções condicionais de retirada  -->
             <div id="arena" class="oculto extra-option-box">
-                <p>Selecione um dia para retirar a sua pizza:</p>
+                <p>Selecione o dia para retirar a sua pizza:</p>
                 <label class="radio-label">
                     <input type="radio" name="dia_retirada" value="quinta"> Quinta-feira, 11/09 das 17h às 20h
                 </label>
@@ -83,6 +92,7 @@
                 <label class="radio-label">
                     <input type="radio" name="dia_retirada" value="sabado"> Sábado, 13/09 das 10h às 14h
                 </label>
+                <label name="dia_retirada">ENDEREÇO: Rua Herculano Couto 174, Jardim Chapadão - Acesso pela PORTARIA 2 do Clube Bonfim Recreativo e Social.</label>
             </div>
             
             <div id="voluntario" class="oculto extra-option-box">
