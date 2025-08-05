@@ -58,6 +58,7 @@ function atualizarResumo() {
     }
   })
 
+// RESUMO DO PEDIDO
   // Atualiza a lista de pizzas no resumo
   resumoPizzasDiv.innerHTML = pizzasHtml || "<p>Nenhuma pizza selecionada</p>"
 
@@ -95,6 +96,8 @@ function atualizarResumo() {
   retiradaSelecionadaSpan.textContent = textoRetirada
   detalhesRetiradaP.textContent = detalhes
 }
+
+
 
 // Event Listeners para as opções de retirada
 const radiosRetirada = document.getElementsByName("retirada")

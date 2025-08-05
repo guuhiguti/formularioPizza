@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Enviado!</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo-projeto.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/comprovante.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="confirmation-card">
+            <h1>PEDIDO ENVIADO, AGUARDANDO PAGAMENTO...</h1>
+            
+            <p>
+                <span class="highlight">Obrigado {{ nome }}</span>, seu pedido no valor
+                de <span class="highlight">R$ {{ total }}</span> foi registrado com sucesso.
+            </p>
+            
+            <p>
+                Encaminhe o comprovante do pix para o WhatsApp 
+                <span class="highlight">19 98153-0819</span> para a confirmação do pedido.
+            </p>
+            
+            <a href="https://wa.me/5519981530819?text=Ol%C3%A1%2C%20segue%20o%20comprovante%20do%20meu%20pedido%20de%20pizza!" 
+               target="_blank" class="whatsapp-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-whatsapp"><path d="M16.75 2H7.25A5.25 5.25 0 0 0 2 7.25v9.5A5.25 5.25 0 0 0 7.25 22h9.5A5.25 5.25 0 0 0 22 16.75V7.25A5.25 5.25 0 0 0 16.75 2Z"/><path d="M12 17V7"/><path d="m9 10 3-3 3 3"/></svg>
+                Enviar Comprovante
+            </a>
+
+            <p class="info-link">
+                Dúvidas ou mais informações, acesse o link abaixo:<br>
+                <a href="https://wa.me/5519981530819" target="_blank">whatsapp.com/sersolidariocampinas</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

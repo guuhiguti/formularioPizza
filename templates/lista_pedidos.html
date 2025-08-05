@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pedidos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lista.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Lista de Pedidos</h1>
+
+        {# Mapeamento de nomes bonitos para retirada e detalhe #}
+        {% set retirada_map = {
+            'arena': 'Arena Bonfim',
+            'voluntario': 'Com Voluntário',
+            'doacao': 'Doação para Famílias'
+        } %}
+        
+        {% set detalhe_map = {
+            'quinta': 'Quinta-feira, 11/09 das 17h às 21h',
+            'sexta': 'Sexta-feira, 12/09 das 16h às 20h',
+            'sabado': 'Sábado, 13/09 das 9h às 14h'
+        } %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>WhatsApp</th>
+                    <th>Sabores</th>
+                    <th>Retirada</th>
+                    <th>Detalhe</th>
+                    <th>Total (R$)</th>
+                    <th>Data de Envio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                <tr>
+                    <td>{{ pedido.id }}</td>
+                    <td>{{ pedido.nome }}</td>
+                    <td>{{ pedido.whatsapp }}</td>
+                    <td>{{ pedido.pizzas }}</td>
+                    <td>{{ retirada_map.get(pedido.retirada, pedido.retirada) }}</td>
+                    <td>{{ detalhe_map.get(pedido.detalhe_retirada, pedido.detalhe_retirada) }}</td>
+                    <td>R$ {{ "%.2f"|format(pedido.total) | replace('.', ',') }}</td>
+                    <td>{{ pedido.data.strftime('%d/%m/%Y %H:%M') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

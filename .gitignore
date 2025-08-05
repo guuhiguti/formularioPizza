@@ -1,2 +1,5 @@
 poetry.lock
 .env
+__pycache__
+pizzas.db
+.venv

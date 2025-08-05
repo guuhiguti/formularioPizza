@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ser Solidário</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo-projeto.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- Header -->   
         <div class="header-section">
             <div class="header-content">
-                <h1>PIZZA SOLIDÁRIA <img src="{{ url_for('static', filename='images/logo-projeto2.png') }}" alt="logo-projeto" width="170px" height="160px"></h1>
+                <h1>PIZZA SOLIDÁRIA <img src="{{ url_for('static', filename='images/logo-projeto2.png') }}" alt="logo-projeto" width="250px" height="250px"></h1>
                 <p>Faça seu pedido e ajude quem precisa!</p>
             </div>            
         </div>
         
-        <form action="/enviar-pedido" method="POST" id="pizza-form">
+        <form action="{{ url_for('home.submit') }}" method="POST" id="pizza-form">
             <div class="dados-usuario">
                 <h3>SEUS DADOS</h3>
                 <div class="dados-grid">
                     <div class="input-group">
                         <label for="name">NOME *</label>
-                        <input type="text" name="name" id="name" placeholder="Nome Completo" required>
+                        <input type="text" name="nome" id="name" placeholder="Nome Completo" required>
                     </div>
                     <div class="input-group">
                         <label for="whatsapp">WHATSAPP *</label>
@@ -53,7 +54,7 @@
                 </div>
             </div>
             
-            <div id="pizza-selection-error" class="error-message" style="display: none; color: red; margin-top: 10px;">
+            <div id="pizza-selection-error" class="error-message" style="display: none; color: red; margin-top: 10px; font-size: medium;">
                 Por favor, selecione pelo menos um sabor de pizza.
             </div>
             
