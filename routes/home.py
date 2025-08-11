@@ -1,5 +1,8 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, send_file
 from database.models.pizzas import Pedidos
+import pandas as pd
+import io
+from database.database import db
 
 home_route = Blueprint('home', __name__)
 
@@ -74,8 +77,30 @@ def view():
     pedidos = Pedidos.select().order_by(Pedidos.id.asc())
     return render_template('lista_pedidos.html', pedidos=pedidos)
 
-# @home_route.route('/reset', methods=['GET'])
-# def reset_pedidos():
-#     Pedidos.delete().execute()
-#     db.execute_sql("ALTER SEQUENCE pedidos_id_seq RESTART WITH 1;")
-#     return "Todos os pedidos foram apagados."
+@home_route.route('/reset', methods=['GET'])
+def reset_pedidos():
+    Pedidos.delete().execute()
+    db.execute_sql("ALTER SEQUENCE pedidos_id_seq RESTART WITH 1;")
+    return "Todos os pedidos foram apagados."
+
+@home_route.route('/exportar_excel')
+def exportar_excel():
+    pedidos = Pedidos.select().dicts()  # Retorna lista de dicionários
+
+    if not pedidos:
+        return "Nenhum pedido para exportar."
+
+    df = pd.DataFrame(pedidos)
+
+    output = io.BytesIO()
+    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        df.to_excel(writer, index=False, sheet_name='Pedidos')
+
+    output.seek(0)
+
+    return send_file(
+        output,
+        as_attachment=True,
+        download_name="pedidos.xlsx",
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )

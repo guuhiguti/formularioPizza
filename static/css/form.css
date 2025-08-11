@@ -300,34 +300,6 @@ h3 {
     font-style: italic;
 }
 
-/* Informações de Pagamento */
-.pagamento-info {
-    background: #be1522; /* Fundo amarelo claro */
-    border: 2px solid #be1522; /* Borda amarela */
-    border-radius: 15px;
-    padding: 25px;
-    margin-top: 30px;
-    text-align: center;
-}
-
-.pagamento-info h2 {
-    color: white; /* Tom de marrom/laranja */
-    margin-bottom: 15px;
-    font-size: 20px;
-}
-
-.pagamento-info h5 {
-    color: white; /* Tom de marrom/laranja */
-    margin-bottom: 15px;
-    font-size: 30px;
-}
-
-.pagamento-info p {
-    margin: 8px 0;
-    font-size: 16px;
-    color: white;
-}
-
 /* Botão de Enviar */
 .btn-enviar {
     width: 100%;
