@@ -20,7 +20,7 @@ def calcular_preco_total(total_pizzas):
         return 0
     num_pares = total_pizzas // 2
     restante_impar = total_pizzas % 2
-    return (num_pares * 90) + (restante_impar * 50)
+    return (num_pares * 80) + (restante_impar * 45)
 
 @home_route.route('/')
 def pedidos():
