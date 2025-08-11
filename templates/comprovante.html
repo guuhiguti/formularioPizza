@@ -13,13 +13,20 @@
             <h1>PEDIDO ENVIADO, AGUARDANDO PAGAMENTO...</h1>
             
             <p>
-                <span class="highlight">Obrigado {{ nome }}</span> por contribuir e fazer parte dessa ação de solidariedade. 
+                <span class="highlight">Obrigado {{ nome }}</span> por contribuir na nossa campanha. 
             </p>
-            <p>Para efetivar o seu pedido, <strong>pedimos que envie o comprovante do PIX até o dia 31/08</strong> em nosso WhatsApp. <strong>Caso contrário, o pedido será cancelado.</strong></p>
+            <p>Para efetivar o seu pedido no valor de <strong> R$ {{ total}},00 </strong>, <strong>pedimos que envie o comprovante do PIX até o dia 31/08</strong>. <strong>Caso contrário, o pedido será cancelado.</strong></p>
             
+            <div class="pagamento-info">
+                <p>CHAVE PIX: 19981530819</p>
+                <p>Cedente: Fabiana Higuti | Banco: Inter</p>
+            </div>
+
             <p>
                 Basta clicar no link abaixo para anexar o comprovante:
             </p>
+
+
             
             <a href="https://wa.me/5519981530819?text=Ol%C3%A1%2C%20segue%20o%20comprovante%20do%20meu%20pedido%20de%20pizza!" 
                target="_blank" class="whatsapp-link">
@@ -27,9 +34,11 @@
                 Enviar Comprovante
             </a>
 
-            <p>No mesmo número, você também pode tirar dúvidas ou solicitar mais informações.</p>
+            <p>Sugerimos <strong>PRINTAR</strong> essa página para guardar a chave pix e o valor, caso deseje pagar posteriormente. <br>
+                E para dúvidas ou mais informações, chame também no WhatsApp.</p>
 
         </div>
     </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

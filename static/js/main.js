@@ -13,7 +13,7 @@ function calcularPrecoTotal(totalPizzas) {
   const numPares = Math.floor(totalPizzas / 2)
   const restanteImpar = totalPizzas % 2
 
-  const custo = numPares * 90 + restanteImpar * 50
+  const custo = numPares * 80 + restanteImpar * 45
   return custo
 }
 

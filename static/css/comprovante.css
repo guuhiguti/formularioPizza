@@ -81,4 +81,19 @@ body {
         font-size: 16px;
     }
 }
+.pagamento-info {
+    background: #be1522;
+    border: 2px solid #be1522;
+    border-radius: 10px;
+    padding: 10px 20px; /* Menos espaço interno */
+    margin-top: 10px;
+    text-align: center;
+    width: fit-content; /* Ajusta ao conteúdo */
+    display: inline-block; /* Fica no tamanho do conteúdo */
+}
 
+.pagamento-info p {
+    margin: 4px 0;
+    font-size: 15px;
+    color: white;
+}
